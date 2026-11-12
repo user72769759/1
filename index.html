@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>~*~ KDJ's Internet World ~*~ WELCOME!!!</title>
+  <meta name="description" content="KDJ's Internet World - the coolest homepage on the information superhighway.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="banner">
+    <h1>KDJ's Internet World</h1>
+    <div class="tagline">&gt;&gt; Your #1 destination on the Information Superhighway since forever &lt;&lt;</div>
+  </div>
+
+  <marquee scrollamount="6">
+    ★ WELCOME TO KDJ'S INTERNET WORLD ★ You are now surfing the coolest site on the World Wide Web ★
+    Don't forget to sign my guestbook!!! ★ Bookmark this page (CTRL+D) ★ Tell your friends ★ No Geocities ads here, baby ★
+  </marquee>
+
+  <div class="wrap">
+    <div class="sidebar" id="sidebar"></div>
+
+    <div class="main">
+
+      <div class="box">
+        <div class="title">Welcome.exe<span class="winbtns"><span>_</span><span>□</span><span>x</span></span></div>
+        <div class="content">
+          <h2 style="margin-top:0;color:#cc00cc">
+            <span class="spin">🌐</span> Hey there, Net Surfer! <span class="spin">🌐</span>
+          </h2>
+          <p>
+            Welcome to <b>KDJ's Internet World</b>, my little corner of cyberspace!
+            Grab a Surge, crank up the dial-up, and stay a while. This page is
+            <span class="blink" style="color:red"><b>100% hand-coded</b></span> with love,
+            caffeine, and absolutely zero professional supervision.
+          </p>
+          <p>
+            Here you'll find stuff about <a href="about.html">me</a>,
+            a bunch of <a href="cool.html">cool stuff</a>,
+            my favorite <a href="links.html">links</a>, and of course my
+            <a href="guestbook.html">GUESTBOOK</a> which you should
+            <u>definitely</u> sign before you leave. I check it every day. Seriously.
+          </p>
+
+          <div class="construction">
+            <div><span class="digger">🚧</span> THIS SITE IS UNDER CONSTRUCTION <span class="digger">👷</span></div>
+          </div>
+          <p style="font-size:12px;text-align:center">(It will always be under construction. That's the fun part.)</p>
+        </div>
+      </div>
+
+      <div class="box pink">
+        <div class="title">What's New?! <span class="new">NEW!</span><span class="winbtns"><span>_</span><span>□</span><span>x</span></span></div>
+        <div class="content">
+          <table class="oldtable">
+            <tr><th>Date</th><th>Update</th></tr>
+            <tr><td>Today</td><td>Launched the site!!! Pop the sparkling cider! 🎉 <span class="new">NEW!</span></td></tr>
+            <tr><td>Soon</td><td>Moving to Cloudflare. Faster than a 56k modem, I promise.</td></tr>
+            <tr><td>Someday</td><td>Learning how to center a div. Pray for me.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="box green">
+        <div class="title">Thought of the Day 💭<span class="winbtns"><span>_</span><span>□</span><span>x</span></span></div>
+        <div class="content" style="text-align:center">
+          <p id="thought" style="font-size:17px;font-style:italic;margin:6px 0"></p>
+          <button class="retro-btn" id="newThought">Gimme another one!</button>
+        </div>
+      </div>
+
+      <div class="box blue">
+        <div class="title">Quick Poll 🗳️<span class="winbtns"><span>_</span><span>□</span><span>x</span></span></div>
+        <div class="content">
+          <p style="margin-top:0"><b>What's the best thing about the internet?</b></p>
+          <form id="poll">
+            <label><input type="radio" name="p" value="0"> Cat pictures</label><br>
+            <label><input type="radio" name="p" value="1"> The dial-up sound</label><br>
+            <label><input type="radio" name="p" value="2"> This website, obviously</label><br>
+            <label><input type="radio" name="p" value="3"> Free smileys :-)</label><br><br>
+            <button class="retro-btn" type="submit">VOTE!</button>
+          </form>
+          <div id="pollResult"></div>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:#fff;font-family:Verdana,sans-serif;font-size:12px">
+        <span class="blink">👉</span> Psst... try the <b>Konami code</b> on this page. <span class="blink">👈</span>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="footer" id="footer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var thoughts = [
+        "If you're reading this, your modem is working. Congrats!",
+        "The internet is just a series of tubes. Wild tubes.",
+        "Always clear your cache. And your heart.",
+        "404: Bad thoughts not found.",
+        "There's no place like 127.0.0.1",
+        "Ctrl+Z doesn't work in real life. I've tried.",
+        "Be the animated GIF you wish to see in the world.",
+        "Life is short. Sign the guestbook."
+      ];
+      var el = document.getElementById("thought"), i = Math.floor(Math.random() * thoughts.length);
+      function show() { el.textContent = "“" + thoughts[i] + "”"; }
+      show();
+      document.getElementById("newThought").onclick = function () {
+        i = (i + 1 + Math.floor(Math.random() * (thoughts.length - 1))) % thoughts.length; show();
+      };
+
+      var labels = ["Cat pictures", "The dial-up sound", "This website, obviously", "Free smileys :-)"];
+      var votes = kdjStore.get("kdj_poll", [42, 17, 9001, 33]);
+      function render() {
+        var total = votes.reduce(function (a, b) { return a + b; }, 0);
+        document.getElementById("pollResult").innerHTML = votes.map(function (v, k) {
+          var pct = Math.round(v / total * 100);
+          return '<div style="font-size:12px;margin-top:4px">' + labels[k] + " (" + pct + "%)" +
+            '<div style="background:#fff;border:1px inset #999;height:10px"><div style="height:10px;width:' + pct +
+            '%;background:linear-gradient(90deg,#ff00ff,#00ffff)"></div></div></div>';
+        }).join("");
+      }
+      document.getElementById("poll").onsubmit = function (e) {
+        e.preventDefault();
+        var pick = this.querySelector("input:checked");
+        if (!pick) { alertBox("You gotta pick something, dude!"); return; }
+        votes[+pick.value]++;
+        kdjStore.set("kdj_poll", votes);
+        this.style.display = "none";
+        render();
+      };
+    })();
+  </script>
+</body>
+</html>
