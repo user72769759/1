@@ -1,39 +1,15 @@
-# 🌐 KDJ's Internet World
+# KDJ's Internet World
 
-A personal homepage with a proud early-2000s spirit: marquees, blinking text, a visitor counter, a guestbook, and way too many sparkles.
+A homemade early-2000s style personal homepage: green tiled background, Comic Sans, yellow text, photo rows and a visitor counter.
 
-## Pages
-
-| File | What's on it |
+| File | What it is |
 |---|---|
-| `index.html` | Home: welcome box, what's new, thought of the day, poll |
-| `about.html` | About me profile |
-| `cool.html` | Magic 8-Ball, smiley collection, virtual pet hamster |
-| `links.html` | Favorite links, link-to-me code, 88x31 buttons |
-| `guestbook.html` | Guestbook (saved in the visitor's browser for now) |
-| `style.css` | All the retro styling |
-| `script.js` | Shared sidebar/footer, counter, MIDI-style music player, sparkle cursor, Konami code |
+| `index.html` | The whole site (one page) |
+| `style.css` | All the styling |
 
-## Run locally
-
-It's plain HTML/CSS/JS, no build step. Open `index.html` in a browser, or:
-
-```bash
-python3 -m http.server 8000
-```
+To add photos, replace each `<div class="photo">` box with `<img src="img/your-photo.jpg" alt="">`.
 
 ## Deploy (Cloudflare)
 
-Connect this repo in Cloudflare (Workers & Pages → Create → Import a Git repository).
-
-- Framework preset: **None**
-- Build command: *(leave empty)*
-- Build output directory: `/`
-
-Every push to `main` redeploys automatically.
-
-## Roadmap
-
-- [ ] Real shared guestbook and visitor counter (Supabase)
-- [ ] Custom domain
-- [ ] More sparkles
+Plain HTML/CSS, no build step. In Cloudflare: Workers & Pages → Create → Import a Git repository.
+Framework preset **None**, build command empty, output directory `/`. Every push to `main` redeploys.
